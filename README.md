@@ -1,1 +1,1 @@
-# a tetris game in javascript for practice
+# A tetris game in javascript for practice
