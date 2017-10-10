@@ -62,14 +62,11 @@ Tetris.prototype = {
     // 地图绘制
     render: function () {
         var map = this.map
-        var setting = this.setting
         var mRowLen = map.length
         var mColLen = map[0].length
-        var w
-        var h
         var margin
-        w = h = setting.grid
-        margin = setting.margin
+        var grid = this.setting.grid
+        margin = this.setting.margin
         for (var i = 0; i < mRowLen; i++) {
             for (var j = 0; j < mColLen; j++) {
                 if (!map[i][j]) {
@@ -77,7 +74,7 @@ Tetris.prototype = {
                 } else if (map[i][j] === 1) {
                     this.ctx.fillStyle = 'orange'
                 }
-                this.ctx.fillRect(j * (w + margin), i * (h + margin), w, h)
+                this.ctx.fillRect(j * (grid + margin), i * (grid + margin), grid, grid)
             }
         }
     },
@@ -210,7 +207,7 @@ Tetris.prototype = {
             }
         }
     },
-    // 方块落地检测
+    // 方块触底检测
     groundTest: function (curBlock) {
         var map = this.map
         var blockRowLen = curBlock.length
